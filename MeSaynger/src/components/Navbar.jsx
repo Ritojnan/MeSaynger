@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const LogoIcon = () => {
   return (
     <Box as="span" fontWeight="bold" fontSize="xl">
-      Logo
+      MeSaynger
     </Box>
   );
 };

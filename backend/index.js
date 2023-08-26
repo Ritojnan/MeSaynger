@@ -1,18 +1,19 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
+const connectToMongo = require('./db');
+const express = require('express')
+var cors = require('cors') 
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+connectToMongo();
+const app = express()
+const port = 5000
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost/chatAppDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+app.use(cors())
+app.use(express.json())
 
-// Define routes and start the server
-app.listen(5000, () => {
-  console.log('Server is running on port 5000');
-});
+// Available Routes
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/notes', require('./routes/notes'))
+
+
+app.listen(port, () => {
+  console.log(`MeSaynger backend listening at http://localhost:${port}`)
+})
