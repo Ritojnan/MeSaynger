@@ -21,6 +21,7 @@ import RootLayout from './layouts/RootLayout'
 import HelpLayout from './layouts/HelpLayout'
 import CareersLayout from './layouts/CareersLayout.jsx'
 import ChatLayout from "./layouts/ChatLayout"
+import AuthPage from "./pages/AuthPage"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -50,7 +51,9 @@ const router = createBrowserRouter(
       >
 
       </Route>
+<Route path="auth" element={<AuthPage/>}>
 
+</Route>
       <Route path="*" element={<NotFound />} />
     </Route>
   )

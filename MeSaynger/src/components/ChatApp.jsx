@@ -10,17 +10,18 @@ const ChatApp = () => {
   };
 
   return (
+
     <Box
       p={{ base: "2", md: "4" }} // Adjust padding based on screen size
       borderWidth="1px"
       borderRadius="md"
-      height="80vh"
+      height="100vh"
       width={{ base: "100%" }} // Set a responsive width
     >
       <ChatWindow />
       <Divider />
       <ChatInput onSendMessage={handleSendMessage} />
-    </Box>
+    </Box>  
   );
 };
 
