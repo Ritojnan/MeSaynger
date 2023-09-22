@@ -14,7 +14,7 @@ const LoadingScreen = () => {
       if (progress < 100) {
         // Replace this with actual API request logic
         // For demonstration, we'll increase the progress by 10% every 1 second
-        setProgress(prevProgress => prevProgress + 30);
+        setProgress(prevProgress => prevProgress + 100);
       } else {
         clearInterval(timer);
         setLoading(false);

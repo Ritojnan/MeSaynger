@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Divider, VStack } from "@chakra-ui/react";
 import ChatWindow from "./ChatWindow";
 import ChatInput from "./ChatInput";
+import ImageUpload from "./ImageUpload";
+import ImageGallery from "./ImageGallery";
 
 const ChatApp = () => {
   const handleSendMessage = message => {
@@ -20,6 +22,8 @@ const ChatApp = () => {
     >
       <ChatWindow />
       <Divider />
+      <ImageUpload/>
+      <ImageGallery/>
       <ChatInput onSendMessage={handleSendMessage} />
     </Box>  
   );

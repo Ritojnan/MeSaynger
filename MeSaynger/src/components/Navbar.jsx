@@ -2,6 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Box, Flex, Spacer, IconButton, useDisclosure } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { NavLink } from 'react-router-dom';
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+} from '@chakra-ui/react'
+
 // Uncomment and customize the LogoIcon component as needed
 const LogoIcon = () => {
   return (
