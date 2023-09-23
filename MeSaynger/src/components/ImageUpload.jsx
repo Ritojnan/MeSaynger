@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, Center, Input, Text, Image } from '@chakra-ui/react';
+import axios from "axios"
 
 export default function ImageUpload() {
   const [image, setImage] = useState('');
@@ -34,7 +35,27 @@ export default function ImageUpload() {
       });
   }
 
+  const submitImage=async(e)=>{
+    e.preventDefault();
+    const formData =new FormData();
+    formData.append("image",image)
+
+    const result = await axios.post(
+      "http://localhost:5000/api/images/uploadimage",
+      formData,
+      {
+        headers:{"Content-Type":"multipart/form-data"}
+      }
+    )
+  }
+
+  const onInputChange=(e)=>{
+    console.log(e.target.files[0]);
+    setImage(e.target.files[0]);
+  }
+
   return (
+    <>
     <Box p={4}>
       <Text fontSize="xl" fontWeight="bold" mb={4}>
         Upload Image
@@ -55,6 +76,13 @@ export default function ImageUpload() {
         </Button>
       </Center>
     </Box>
+<Box>
+  <form onSubmit={submitImage}>
+  <Input p={2} m={2} type="file" accept="image/*" onChange={onInputChange} />
+  <button type='submit'>Submit</button>
+  </form>
+</Box>
+    </>
   );
 }
 

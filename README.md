@@ -9,3 +9,6 @@
 (2) GitHub - davehowson/chat-app: MERN Stack Based Chat Application. https://github.com/davehowson/chat-app.
 (3) Socket.io in Mern Todo App - Medium. https://medium.com/@vipinswarnkar1989/socket-io-in-mern-todo-app-5fd9ca732242.
 (4) Using Socket.io with a MERN Stack | by Keith Weaver | Medium. https://keithweaverca.medium.com/using-socket-io-with-a-mern-stack-2a7049f94b85.
+
+
+https://dev.to/kunalukey/how-to-setup-and-deploy-a-mern-stack-project-for-free-5acl

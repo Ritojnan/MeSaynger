@@ -8,23 +8,27 @@ import {
   Text,
   Box,
 } from '@chakra-ui/react';
-
+import axios from "axios"
 const ImageGallery = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  function getImage() {
+  async function getImage() {
     setLoading(true);
 
-    fetch('http://localhost:5000/api/images/getimage', {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((imgobj) => {
-        console.log(imgobj);
-        setImages(imgobj.data);
-        setLoading(false);
-      });
+    const result =await axios.get("http://localhost:5000/api/images/getimage");
+    console.log(result)
+    setImages(result.data.data)
+    setLoading(false)
+    // fetch('http://localhost:5000/api/images/getimage', {
+    //   method: 'GET',
+    // })
+    //   .then((res) => res.json())
+    //   .then((imgobj) => {
+    //     console.log(imgobj);
+    //     setImages(imgobj.data);
+    //     setLoading(false);
+    //   });
   }
 
   return (
@@ -42,7 +46,17 @@ const ImageGallery = () => {
         gap={4}
         mt={4}
       >
-        {images.map((image) => (
+        {
+          images.map((image)=>{
+            console.log(image)
+            return (
+              
+              <img key={image._id} src={`http://localhost:5000/`+image.image} alt="data" />
+              
+            )
+          })
+        }
+        {/* {images.map((image) => (
           <GridItem key={image._id} colSpan={1}>
             <Center>
               <Image
@@ -53,7 +67,7 @@ const ImageGallery = () => {
               />
             </Center>
           </GridItem>
-        ))}
+        ))} */}
       </Grid>
     </Box>
   );

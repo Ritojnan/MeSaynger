@@ -1,32 +1,55 @@
 const express = require('express');
 const router = express.Router();
-const fetchuser = require('../middleware/fetchuser');
+// const fetchuser = require('../middleware/fetchuser');
 const Image = require('../models/Image');
-const { body, validationResult } = require('express-validator');
+// const { body, validationResult } = require('express-validator');
+const multer = require('multer')
 
+const storage =multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null,'uploads/')
 
+    },
+    filename:function(req,file,cb){
+        // const uniqueSuffix=Date.now()+'-'+Math.round(Math.round()*1E9)
+        // cb(null,file.fieldname+'-'+uniqueSuffix)
+        const uniqueSuffix=Date.now()
+        cb(null,uniqueSuffix+file.originalname)
+    },
+})
 
+const upload=multer({storage:storage})
 // ROUTE 1: Get All the Notes using: GET "/api/images/uploadimage". Login required
 
-router.post('/uploadimage',async(req,res)=>{
-const {base64}=req.body;
+router.post('/uploadimage',upload.single("image"),async(req,res)=>{
+console.log(req.body);
+const imageName =req.file.filename;
+
 try{
-    Image.create({image:base64});
-    res.send({Status:"ok"})
+    await Image.create({image:imageName})
+    res.json({status:"ok"})
+}catch(error){
+    res.json({status:error})
 }
-catch(error){
+// const {base64}=req.body;
+// try{
+//     Image.create({image:base64});
+//     res.send({Status:"ok"})
+// }
+// catch(error){
 
-res.status(500).send("Internal Server Error");
+// res.status(500).send("Internal Server Error");
 
+// }
 }
-})
+
+)
 
 
 
 // ROUTE 2: Get All the Notes using: GET "/api/images/getimage". Login required
 
 router.get('/getimage',async(req,res)=>{
-    const {base64}=req.body;
     try{
 await Image.find({}).then(data=>{
     res.send({status:"ok",data:data})
@@ -38,7 +61,8 @@ await Image.find({}).then(data=>{
     res.status(500).send("Internal Server Error");
     
     }
-    })
+    }
+    )
 
 // ROUTE 1: Get All the Notes using: GET "/api/notes/getuser". Login required
 // router.get('/fetchallnotes', fetchuser, async (req, res) => {
