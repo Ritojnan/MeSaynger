@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Box, Center, CircularProgress, Grid } from "@chakra-ui/react";
+import { Box, Center, CircularProgress, Grid ,Flex} from "@chakra-ui/react";
 import Sidebar from "../components/SideBar.jsx"
 import ChatApp from "../components/ChatApp.jsx"
 
+import { LeftPanel } from "./left-panel";
+import { RightPanel } from "./right-panel";
 
 const LoadingScreen = () => {
   const [loading, setLoading] = useState(true);
@@ -27,6 +29,7 @@ const LoadingScreen = () => {
   }, [progress]);
 
   return (
+    <>
     <Box height="100vh">
       {loading ? (
         <Center height="100%">
@@ -42,6 +45,12 @@ const LoadingScreen = () => {
         </Grid>
       )}
     </Box>
+    
+    <Flex h="100vh">
+      <LeftPanel />
+      <RightPanel />
+    </Flex>
+    </>
   );
 };
 

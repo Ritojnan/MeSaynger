@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Divider, VStack } from "@chakra-ui/react";
+import { Box, Divider, VStack,Flex } from "@chakra-ui/react";
 import ChatWindow from "./ChatWindow";
 import ChatInput from "./ChatInput";
+import ChatComponent from "./ChatComponent";
 import ImageUpload from "./ImageUpload";
 import ImageGallery from "./ImageGallery";
 
@@ -12,7 +13,7 @@ const ChatApp = () => {
   };
 
   return (
-
+<>
     <Box
       p={{ base: "2", md: "4" }} // Adjust padding based on screen size
       borderWidth="1px"
@@ -25,7 +26,11 @@ const ChatApp = () => {
       <ImageUpload/>
       <ImageGallery/>
       <ChatInput onSendMessage={handleSendMessage} />
+      <ChatComponent/>
+      
     </Box>  
+
+    </>
   );
 };
 

@@ -16,6 +16,8 @@ const nlp = new Nlp();
   nlp.settings.autoSave = false;
   nlp.addLanguage('en');
 
+  await nlp.load('./data/nlp-model.json');
+
   // Create an array to store CSV data from intent-question.csv
   const data = [];
 
@@ -50,7 +52,13 @@ const nlp = new Nlp();
                     await nlp.train();
 
 
-
+                    // fs.writeFile('./data/nlp_model.json', JSON.stringify(nlp), (err) => {
+                    //   if (err) {
+                    //     console.error(err);
+                    //     return;
+                    //   }
+                    //   console.log('Data written to file');
+                    // });
         });
     });
 })();
@@ -62,6 +70,9 @@ router.post('/ask',async  (req, res) => {
     // Process the user's query
 
  nlp.process('en', query).then((response) => {
+  if(response.intent=="None"){
+    res.json("Sorry I am unable to answer that.Can you please try something else?Thank you")
+  }
       res.json(response.answer);
     //   res.json(response.intent);
     });
