@@ -1,6 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { ChatList } from './chat-list';
-import { Header } from './header';
+import { Header } from './Header';
 import { SearchPanel } from './search-panel';
 
 export function LeftPanel(props) {

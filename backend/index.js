@@ -22,6 +22,7 @@ app.use(express.static('../MeSaynger/dist'));
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/notes', require('./routes/notes'))
 app.use('/api/images', require('./routes/images'))
+
 // app.use('/api/chatbot', require('./routes/chatbot'))
 
 
