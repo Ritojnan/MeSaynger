@@ -1,4 +1,4 @@
-# MeSaynger
+# Web Messaging App
 
 - [socket-io-chat-app · GitHub Topics · GitHub](^1^): This is a collection of public repositories on GitHub that are related to socket io chat app development. You can browse through them and see how other developers have implemented their chat apps using different technologies and frameworks.
 - [GitHub - davehowson/chat-app: MERN Stack Based Chat Application](^2^): This is a full-stack chat application built with the MERN stack. It features authentication, global chat, private chat, and real-time updates using socket io. You can clone this repo and follow the instructions to run it locally or deploy it online.

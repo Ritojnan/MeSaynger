@@ -48,5 +48,5 @@ io.on("connection",(socket)=>{
 })
 
 server.listen(port, () => {
-  console.log(`MeSaynger backend listening at http://localhost:${port}`)
+  console.log(`W.M.A backend listening at http://localhost:${port}`)
 })
