@@ -49,8 +49,7 @@ import {
         spacing="0"
         pr="1"
         divider={<StackDivider w="82%" alignSelf="flex-end" />}
-        {...props}
-      >
+        flex='1' overflow='auto'      >
         {chatData.map((item, index) => (
           <Chat
             key={index}

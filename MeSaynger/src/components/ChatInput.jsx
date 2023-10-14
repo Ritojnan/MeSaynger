@@ -24,17 +24,6 @@ const ChatInput = ({ onSendMessage }) => {
         Send
       </Button>
     </Box>
-    // <Flex
-    //   p="2"
-    //   bottom="0"
-    //   width="50%"
-    //   position="fixed"
-    //   borderTopWidth="1px"
-    //   bg="white"
-    // >
-    //   <Input placeholder="Type your message..." flex="1" mr="2"  />
-    //   <Button colorScheme="blue" onClick={handleMessageSend}>Send</Button>
-    // </Flex>
   );
 };
 

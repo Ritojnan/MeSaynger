@@ -36,20 +36,10 @@ import {
             _hover={{ bg: '#f0f2f5' }}
             bg='#f0f2f5'
             variant='filled'
-            placeholder='Search or start new chat'
+            placeholder='Search'
           />
         </InputGroup>
-        <Tooltip
-          shouldWrapChildren
-          label='Unread chats filter'
-          bg='#eae6df'
-          color='black'
-          fontSize='xs'
-        >
-          <IconButton>
-            <FilterIcon />
-          </IconButton>
-        </Tooltip>
+      
       </HStack>
     );
   }

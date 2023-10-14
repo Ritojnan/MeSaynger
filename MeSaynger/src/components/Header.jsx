@@ -1,4 +1,14 @@
-import { Avatar, Flex, HStack, IconButton, Tooltip } from "@chakra-ui/react";
+import { Avatar, Flex, HStack, IconButton, Tooltip, Button } from "@chakra-ui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+} from '@chakra-ui/react'
 import {
   CommunityIcon,
   MenuIcon,
@@ -6,28 +16,6 @@ import {
   StatusIcon,
 } from "../assets/icons";
 
-const iconData = [
-  { icon: <CommunityIcon />, label: "Community chat" },
-  { icon: <StatusIcon />, label: "Status" },
-  { icon: <NewChatIcon />, label: "New Chat" },
-  { icon: <MenuIcon />, label: "Menu" },
-];
-
-// eslint-disable-next-line react/prop-types
-function CustomTooltip({ label, icon, ...rest }) {
-  return (
-    <Tooltip
-      shouldWrapChildren
-      label={label}
-      bg="#eae6df"
-      color="black"
-      fontSize="xs"
-      {...rest}
-    >
-      <IconButton variant="ghost">{icon}</IconButton>
-    </Tooltip>
-  );
-}
 
 export function Header(props) {
   return (
@@ -47,25 +35,37 @@ export function Header(props) {
         src="https://randomuser.me/api/portraits/men/44.jpg"
       />
       <HStack spacing="3">
-        {iconData.map((item, index) => (
-          <CustomTooltip key={index} label={item.label} icon={item.icon} />
-        ))}
+        
+        <Tooltip
+          shouldWrapChildren
+          label="New Chat"
+          bg="#eae6df"
+          color="black"
+          fontSize="xs"
+        >
+           <NewChatIcon />
+        </Tooltip>
+
+        <Tooltip
+          shouldWrapChildren
+          label="Menu"
+          bg="#eae6df"
+          color="black"
+          fontSize="xs"
+        >
+          <Menu>
+            <MenuButton variant="ghost">
+              <MenuIcon />
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Settings</MenuItem>
+              <MenuItem>Log out</MenuItem>
+            </MenuList>
+          </Menu>
+        </Tooltip>
+
       </HStack>
     </Flex>
   );
 }
 
-// import { Box, Flex, Heading } from "@chakra-ui/react";
-
-// const Header = () => {
-//   return (
-//     <Box bg="gray.800" py={4}>
-//       <Flex maxW="container.xl" mx="auto" align="center" justify="space-between">
-//         <Heading color="white">Business Website</Heading>
-//         {/* Add navigation links or other content here */}
-//       </Flex>
-//     </Box>
-//   );
-// };
-
-// export default Header;

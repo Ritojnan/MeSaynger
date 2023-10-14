@@ -7,7 +7,7 @@ import {
     HStack,
     Text,
   } from '@chakra-ui/react';
-  import { EncryptedIcon, GeneralIcon } from '../assets/icons';
+import { Outlet } from 'react-router-dom';
   
   export function RightPanel(props) {
     return (
@@ -19,26 +19,23 @@ import {
         w="100%"
         shadow="md"
       >
+
         <Flex
           direction='column'
           textAlign='center'
           color='#41525d'
           align='center'          
         >
-          <GeneralIcon />
           <Box pt='8'>
-            <Heading fontWeight='light'>Whatsapp Web Clone</Heading>
+            <Heading fontWeight='light'>Web Messaging App</Heading>
             <Text fontSize='sm' mt='4'>
-              Send and receive messages without keeping your phone online. <br />{' '}
-              Use WhatsApp on up to 4 linked devices and 1 phone at the same time.
+              Send and receive messages from any device that has an internet connection
             </Text>
           </Box>
           <AbsoluteCenter axis='horizontal' bottom='10' flex='1' mt='10'>
             <HStack justifyItems='baseline' color='#8696a0'>
-              <EncryptedIcon />
-              <Text fontSize='sm' fontWeight='medium'>
-                End-to-end encrypted
-              </Text>
+              <Text>HHHH</Text>
+              <Outlet/>
             </HStack>
           </AbsoluteCenter>
         </Flex>

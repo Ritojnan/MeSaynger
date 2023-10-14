@@ -77,10 +77,6 @@ const Navbar = () => {
           justifyContent="flex-end" // Align links to the right
         >
           {/* Navigation links */}
-          <Box mr={4}><NavLink to="/">Home</NavLink></Box>
-          <Box mr={4}><NavLink to="/about">About</NavLink></Box>
-          <Box mr={4}><NavLink to="/help">Help</NavLink></Box>
-          <Box mr={4}><NavLink to="/careers">Careers</NavLink></Box>
         </Box>
       </Flex>
       {/* Additional content */}
